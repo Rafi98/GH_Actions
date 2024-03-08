@@ -1,16 +1,15 @@
-name: example-secrets
-# This workflow represents a set of basic End-to-End tests
+name: My Workflow
+
 on:
   push:
     branches:
-      - 'master'
-  pull_request:
-  workflow_dispatch:
+      - main
 
 jobs:
- my-job:
+  my-job:
     runs-on: ubuntu-latest
+    env:
+      MY_ENV_VAR: ${{ secrets.MY_SECRET }}
     steps:
-      - name: my-steps
-        run: echo "Hello World!"
-   
+      - name: My Step
+        run: echo $MY_ENV_VAR
