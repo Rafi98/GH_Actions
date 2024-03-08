@@ -1,0 +1,16 @@
+name: example-secrets
+# This workflow represents a set of basic End-to-End tests
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: my-steps
+        run: echo "Hello World!"
