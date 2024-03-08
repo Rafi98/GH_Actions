@@ -9,5 +9,8 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
-      - name: My secret
+      - name: My secret API
         run: echo "My secret is ${{ secrets.API_KEY }}"
+      - name: My_Secret
+        run: echo "My_secret is ${{ secrets.MY_SECRET }}"
+        
