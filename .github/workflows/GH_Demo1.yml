@@ -14,3 +14,9 @@ jobs:
     steps:
       - name: my-steps
         run: echo "Hello World!"
+
+    env:
+      MY_ENV_VAR: ${{ secrets.MY_SECRET }}
+    steps:
+      - name: My Step
+        run: echo $MY_ENV_VAR
