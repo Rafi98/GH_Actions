@@ -11,4 +11,4 @@ jobs:
     env:
     steps:
       - name: My secret
-        run: echo "My secret is ${{ secret.API_KEY}}"
+        run: echo "My secret is ${{secret.API_KEY}}"
