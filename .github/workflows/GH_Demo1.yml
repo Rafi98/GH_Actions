@@ -1,4 +1,4 @@
-name: My Workflow
+name: My Secret Workflow
 
 on:
   push:
@@ -9,7 +9,6 @@ jobs:
   my-job:
     runs-on: ubuntu-latest
     env:
-      MY_ENV_VAR: ${{ secrets.MY_SECRET }}
     steps:
-      - name: My Step
-        run: echo $MY_ENV_VAR
+      - name: My secret
+        run: echo "My secret is ${{ secret.API_KEY}}"
