@@ -8,13 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-
-  my-job:
+ my-job:
     runs-on: ubuntu-latest
     steps:
       - name: my-steps
         run: echo "Hello World!"
-
     env:
       MY_ENV_VAR: ${{ secrets.MY_SECRET }}
     steps:
