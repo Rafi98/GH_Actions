@@ -8,7 +8,6 @@ on:
 jobs:
   my-job:
     runs-on: ubuntu-latest
-    env:
     steps:
       - name: My secret
         run: echo "My secret is ${{ secrets.API_KEY }}"
