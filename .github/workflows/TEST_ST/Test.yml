@@ -1,1 +1,76 @@
+name: Change Secret Workflow
 
+on:
+  push:
+    branches:
+      - main
+
+  ##workflow_dispatch:
+    #inputs:
+     # new_secret_value:
+      #  description: 'New value for the secret'
+       # required: true
+
+jobs:
+  Install_gh_CLI:
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Install gh CLI
+      run: |
+          # Install gh CLI
+          sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+          && sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+          && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+          && sudo apt update \
+          && sudo apt install gh -y
+      
+  login:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log in to GitHub
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          gh auth login --with-token <<<"${GH_TOKEN}"
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: List contents of the directory
+        run: ls -al
+
+      - name: Clone repository using gh CLI
+        run: |
+          gh repo clone Rafi98/GH_Actions GH_Actions
+          cd GH_Actions
+
+
+      - name: Display URL Path
+        run: |
+          echo "Path of the remote URL: https://github.com/${{ github.repository }}/tree/${{ github.ref }}"
+      
+     
+      - name: Change in Secret Value
+        run: |
+          gh secret list
+               
+          # Retrieve and list existing secrets
+          #gh secret list --json | jq -r '.[] | "\(.name): \(.value)"'
+          
+          # Update the secret with the new value
+          #gh secret set -R Rafi98/GH_Actions MY_SECRET -b 'Eleven'
+
+          gh secret set MY_SECRET -b 'NINE'
+
+          
+
+        
+      - name: Display Changed Secret_Value
+        env:
+          MY_VAL: ${{ secrets.MY_SECRET }}
+        run: |
+          import os
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+        shell: python
