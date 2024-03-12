@@ -61,7 +61,7 @@ jobs:
           # Update the secret with the new value
           #gh secret set -R Rafi98/GH_Actions MY_SECRET -b 'Eleven'
 
-          gh secret set MY_SECRET -b 'NINE'
+          gh secret set MY_SECRET -b 'TEN'
 
           
 
