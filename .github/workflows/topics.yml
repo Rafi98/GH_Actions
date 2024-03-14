@@ -12,11 +12,4 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         with:
           EMAIL: s.mdrafi98@gmail.com
-          TOPICS: |-
-            api
-            automation
-            challenge
-            cli
-            github-actions
-            npm-package
-            theme
+          TOPICS: api, automation, challenge, cli, github-actions, npm-package, theme

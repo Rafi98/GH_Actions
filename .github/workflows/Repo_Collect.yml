@@ -1,0 +1,17 @@
+name: Read_Repo
+run-name: Update Repo topic 
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-activity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Rafi98/GH_Actions@main
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        with:
+          COMMIT_MSG: "docs(README): auto-update activity [skip ci]"
+          MAX_LINES: 10
+
