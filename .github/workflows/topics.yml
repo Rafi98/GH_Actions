@@ -1,0 +1,22 @@
+name: Readm-topics
+run-name: Update file with repos categorized by topic
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-topics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        with:
+          EMAIL: s.mdrafi98@gmail.com
+          TOPICS: |-
+            api
+            automation
+            challenge
+            cli
+            github-actions
+            npm-package
+            theme
