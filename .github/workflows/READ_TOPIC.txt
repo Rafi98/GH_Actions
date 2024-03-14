@@ -1,2 +1,2 @@
- api, automation, challenge, cli, github-actions, npm-package, theme
+ api,automation,challenge,cli,github-actions,npm-package,theme
 

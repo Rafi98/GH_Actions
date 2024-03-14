@@ -1,5 +1,5 @@
 name: readme-topics
-run-name: Read repos categorized by topic
+run-name: Update READ_TOPIC.txt with repos categorized by topic
 on:
   workflow_dispatch:
 
@@ -12,4 +12,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_PAT }}
         with:
           EMAIL: s.mdrafi98@gmail.com
-          TOPICS: api, automation, challenge, cli, github-actions, npm-package, theme
+          TOPICS: api,automation,challenge,cli,github-actions,npm-package,theme
+
