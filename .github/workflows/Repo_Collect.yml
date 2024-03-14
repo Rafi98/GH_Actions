@@ -1,5 +1,5 @@
 name: Read_Repo
-run-name: Update Repo topic 
+run-name: Update READ_TOPIC.txt with Recent Activity
 on:
   workflow_dispatch:
 
